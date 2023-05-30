@@ -1,0 +1,48 @@
+<ng-template #loading>
+  <div class="alert alert-info d-flex align-items justify-content-center gap-3 m-5" role="alert">
+    <div>
+      <img src="assets/loading.svg" height="20" width="20">
+    </div>
+    <div>
+      Espere un Momento...
+    </div>
+  </div>
+
+</ng-template>
+
+
+<div *ngIf="country; else loading">
+  <div class="row">
+    <div class="col-12">
+      <h2>Pais: <strong>{{ country.name.common }}</strong></h2>
+      <hr>
+      <div class="row">
+        <div class="col-4 text-center">
+          <img [src]="country.flags.svg" [alt]="country.name.common" class="img-thumbnail">
+        </div>
+        <div class="col">
+          <h3>Details</h3>
+          <ul class="list-group">
+            <li class="list-group-item"><strong>official:</strong> {{ country.name.common }}</li>
+            <li class="list-group-item"><strong>capital:</strong>  {{country.capital}}</li>
+            <li class="list-group-item"><strong>Population:</strong> {{country.population | number}}</li>
+            <li class="list-group-item"> <strong>Region:</strong>: {{country.region}}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col">
+          <h3>Translates</h3>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="badge bg-primary p-2">{{ country.translations['ara'].common }}</span>
+            <span class="badge bg-primary p-2">{{ country.translations['zho'].common }}</span>
+            <span class="badge bg-primary p-2">{{ country.translations['srp'].common }}</span>
+            <span class="badge bg-primary p-2">{{ country.translations['rus'].common }}</span>
+            <span class="badge bg-primary p-2">{{ country.translations['jpn'].common }}</span>
+            <span class="badge bg-primary p-2">{{ country.translations['ita'].common }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
